@@ -17,7 +17,9 @@ import armamento.*
 import elementos_del_Juego.*
 
 object floki {
-    var arma = ballesta
+    
+    
+    var arma = jabalina
     var ultimoElemento = castillo 
 
     method encontrar(elemento) {
@@ -26,13 +28,23 @@ object floki {
     method elegirArma(unaArma) {
         arma = unaArma
     }
-
-    method atacar(objetivo) {
-        arma.usar()
-        objetivo.recibirAtaque(arma.potencia())
+    method arma() {
+        return arma
     }
 
-    
+   method atacar(objetivo) {
+    if (arma.estaCargada()) {
+        objetivo.recibirAtaque(arma.potencia())
+        arma.usar()
+        console.println("Floki atacó con " + arma + " y la descargó.")
+    } else {
+        console.println("El arma está descargada. Floki la recarga y ataca.")
+        arma.recargar()
+        objetivo.recibirAtaque(arma.potencia())
+        arma.usar()
+        console.println("Floki atacó con " + arma + " y la descargó.")
+            }
+    }
 }
 
 

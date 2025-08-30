@@ -19,6 +19,9 @@ object jabalina {
     method estaCargada() {
         return cargada
     }
+    method recargar() {
+        cargada = true
+    }
 
     method potencia() {
         return 30
@@ -33,6 +36,9 @@ object ballesta {
 
     method estaCargada() {
         return flechas >= 1
+    }
+    method recargar() {
+        flechas = 10
     }
 
     method potencia() {

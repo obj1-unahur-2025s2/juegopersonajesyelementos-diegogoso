@@ -35,7 +35,7 @@ object aurora {
     }
 
     method recibirAtaque(potencia) {
-        viva = potencia < 10
+        viva = (potencia < 10) // si la potencia es menor a 10, sigue viva
         // No se descuenta defensa, porque no le pasa nada si sobrevive
     }
      method valor() {
@@ -45,11 +45,13 @@ object aurora {
     
 }
 object castillo {
+        
         var nivelDeResistencia = 150
         const altura = 20
         method recibirAtaque(potencia) {
         nivelDeResistencia = (nivelDeResistencia - potencia).max(0)
-    }
+            
+        }
         method altura() {
             return altura
         }
@@ -62,7 +64,7 @@ object castillo {
     }
 
     method recibirTrabajo() {
-        nivelDeResistencia = (nivelDeResistencia + 20).max(200)
+        nivelDeResistencia = (nivelDeResistencia + 20).min(200)
     }
         
     }
